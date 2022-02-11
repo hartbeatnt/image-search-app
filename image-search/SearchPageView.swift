@@ -28,7 +28,7 @@ struct SearchPageView: View {
             .navigationTitle("Image Search")
             .toolbar {
                  if searching {
-                     CancelButtonView(searchText: $searchText, searching: $searching)
+                     SearchCancelButtonView(searchText: $searchText, searching: $searching)
                  }
              }
     }

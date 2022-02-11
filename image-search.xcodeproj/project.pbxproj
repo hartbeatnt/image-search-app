@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE9A0B1027B6FE8E003462F5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B0F27B6FE8E003462F5 /* Util.swift */; };
 		AE9A0B1227B7078D003462F5 /* RecentSearchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1127B7078D003462F5 /* RecentSearchesView.swift */; };
-		AE9A0B1427B70A11003462F5 /* CancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1327B70A11003462F5 /* CancelButtonView.swift */; };
+		AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */; };
 		AEF2523927B4CD0D006C9011 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523827B4CD0D006C9011 /* App.swift */; };
 		AEF2523B27B4CD0D006C9011 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523A27B4CD0D006C9011 /* ContentView.swift */; };
 		AEF2523D27B4CD0D006C9011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF2523C27B4CD0D006C9011 /* Assets.xcassets */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		AE9A0B0F27B6FE8E003462F5 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		AE9A0B1127B7078D003462F5 /* RecentSearchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesView.swift; sourceTree = "<group>"; };
-		AE9A0B1327B70A11003462F5 /* CancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButtonView.swift; sourceTree = "<group>"; };
+		AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCancelButtonView.swift; sourceTree = "<group>"; };
 		AEF2523527B4CD0D006C9011 /* image-search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "image-search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2523827B4CD0D006C9011 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		AEF2523A27B4CD0D006C9011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				AEF2523827B4CD0D006C9011 /* App.swift */,
 				AE9A0B0F27B6FE8E003462F5 /* Util.swift */,
 				AEF2523A27B4CD0D006C9011 /* ContentView.swift */,
-				AE9A0B1327B70A11003462F5 /* CancelButtonView.swift */,
+				AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */,
 				AE9A0B1127B7078D003462F5 /* RecentSearchesView.swift */,
 				AEF2526427B4D3E0006C9011 /* ResultsPageView.swift */,
 				AEF2526827B4DCE9006C9011 /* SearchBarView.swift */,
@@ -283,7 +283,7 @@
 				AEF2523B27B4CD0D006C9011 /* ContentView.swift in Sources */,
 				AEF2523927B4CD0D006C9011 /* App.swift in Sources */,
 				AEF2526527B4D3E0006C9011 /* ResultsPageView.swift in Sources */,
-				AE9A0B1427B70A11003462F5 /* CancelButtonView.swift in Sources */,
+				AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */,
 				AE9A0B1227B7078D003462F5 /* RecentSearchesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

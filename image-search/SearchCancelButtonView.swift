@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CancelButtonView: View {
+struct SearchCancelButtonView: View {
     @Binding var searchText: String
     @Binding var searching: Bool
     
@@ -22,11 +22,11 @@ struct CancelButtonView: View {
     }
 }
 
-struct CancelButtonView_Previews: PreviewProvider {
+struct SearchCancelButtonView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var searching = false
 
     static var previews: some View {
-        CancelButtonView(searchText: $searchText, searching: $searching)
+        SearchCancelButtonView(searchText: $searchText, searching: $searching)
     }
 }
