@@ -14,6 +14,7 @@
 		AE9A0B1B27B73916003462F5 /* Secrets-Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1A27B73916003462F5 /* Secrets-Example.swift */; };
 		AE9A0B1D27B74157003462F5 /* ImgurAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1C27B74157003462F5 /* ImgurAPI.swift */; };
 		AE9A0B2327B76520003462F5 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B2227B76520003462F5 /* UIApplication+Extensions.swift */; };
+		AE9A0B2627B76690003462F5 /* ResultsPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B2527B76690003462F5 /* ResultsPageViewModel.swift */; };
 		AEF2523927B4CD0D006C9011 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523827B4CD0D006C9011 /* App.swift */; };
 		AEF2523B27B4CD0D006C9011 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523A27B4CD0D006C9011 /* ContentView.swift */; };
 		AEF2523D27B4CD0D006C9011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF2523C27B4CD0D006C9011 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		AE9A0B1A27B73916003462F5 /* Secrets-Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Secrets-Example.swift"; sourceTree = "<group>"; };
 		AE9A0B1C27B74157003462F5 /* ImgurAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImgurAPI.swift; sourceTree = "<group>"; };
 		AE9A0B2227B76520003462F5 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		AE9A0B2527B76690003462F5 /* ResultsPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsPageViewModel.swift; sourceTree = "<group>"; };
 		AEF2523527B4CD0D006C9011 /* image-search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "image-search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2523827B4CD0D006C9011 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		AEF2523A27B4CD0D006C9011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +127,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		AE9A0B2427B76674003462F5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AE9A0B2527B76690003462F5 /* ResultsPageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		AEF2522C27B4CD0D006C9011 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 				AEF2523827B4CD0D006C9011 /* App.swift */,
 				AE9A0B2127B764A2003462F5 /* Utils */,
 				AE9A0B2027B76451003462F5 /* Views */,
+				AE9A0B2427B76674003462F5 /* ViewModels */,
 				AE9A0B1727B738FB003462F5 /* Secrets */,
 				AEF2524127B4CD0D006C9011 /* Info.plist */,
 			);
@@ -316,6 +327,7 @@
 				AE9A0B1B27B73916003462F5 /* Secrets-Example.swift in Sources */,
 				AE9A0B1D27B74157003462F5 /* ImgurAPI.swift in Sources */,
 				AE9A0B2327B76520003462F5 /* UIApplication+Extensions.swift in Sources */,
+				AE9A0B2627B76690003462F5 /* ResultsPageViewModel.swift in Sources */,
 				AEF2526927B4DCE9006C9011 /* SearchBarView.swift in Sources */,
 				AE9A0B1927B7390C003462F5 /* Secrets.swift in Sources */,
 				AE9A0B1027B6FE8E003462F5 /* Networking.swift in Sources */,

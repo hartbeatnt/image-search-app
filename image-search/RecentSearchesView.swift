@@ -20,7 +20,9 @@ struct RecentSearchesView: View {
                         $0.lowercased().contains(searchText.lowercased())
                     }
                 ForEach(filteredRecents, id: \.self) { query in
-                    Text(query)
+                    NavigationLink(destination: ResultsPageView(query: searchText)) {
+                        Text(query)
+                    }
                 }
             }
         }
