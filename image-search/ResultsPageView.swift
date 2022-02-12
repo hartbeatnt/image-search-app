@@ -16,10 +16,9 @@ struct ResultsPageView: View {
     }
     
     var body: some View {
-        Text(query)
-            .onAppear {
-                viewModel.fetchData(query: query)
-            }
+        Text(query).onAppear {
+            viewModel.fetchData(query: query)
+        }
     }
 }
 

@@ -39,16 +39,20 @@ struct SearchPageView: View {
             }
         }
             .navigationTitle("Image Search")
-            .onAppear {
-                searchText = ""
-                searching = false
-                didCompleteSearch = false
-            }
-            .toolbar {
-                 if searching {
-                     SearchCancelButtonView(searchText: $searchText, searching: $searching)
-                 }
-             }
+            .onAppear(perform: onAppear)
+            .toolbar(content: maybeAddCancelButton)
+    }
+
+    private func onAppear() {
+        searchText = ""
+        searching = false
+        didCompleteSearch = false
+    }
+
+    private func maybeAddCancelButton() -> SearchCancelButtonView? {
+        searching
+            ? SearchCancelButtonView(searchText: $searchText, searching: $searching)
+            : nil
     }
 }
 

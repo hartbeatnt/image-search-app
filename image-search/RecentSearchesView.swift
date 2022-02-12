@@ -15,12 +15,7 @@ struct RecentSearchesView: View {
     var body: some View {
         List {
             Section(header: Text("Recent Searches")) {
-                let filteredRecents = searchText.isEmpty
-                    ? recentSearches
-                    : recentSearches.filter {
-                        $0.lowercased().contains(searchText.lowercased())
-                    }
-                ForEach(filteredRecents, id: \.self) { suggestion in
+                ForEach(getFilteredRecents(), id: \.self) { suggestion in
                     NavigationLink(destination: ResultsPageView(query: searchText)) {
                         Text(suggestion)
                             .gesture(TapGesture(count: 1).onEnded {
@@ -34,6 +29,14 @@ struct RecentSearchesView: View {
             .gesture(TapGesture(count: 1).onEnded { _ in
                 UIApplication.shared.dismissKeyboard()
             })
+    }
+
+    private func getFilteredRecents() -> [String] {
+        searchText.isEmpty
+            ? recentSearches
+            : recentSearches.filter {
+                $0.lowercased().contains(searchText.lowercased())
+            }
     }
 }
 

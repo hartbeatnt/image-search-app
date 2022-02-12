@@ -18,16 +18,10 @@ struct SearchBarView: View {
                 .foregroundColor(Color.gray)
             HStack {
                 Image(systemName: "magnifyingglass")
-                TextField("Search ..", text: $searchText) { isSearching in
-                    if isSearching {
-                        withAnimation { searching = true }
-                    }
-                } onCommit: {
-                    withAnimation {
-                        searching = false
-                        submitSearch()
-                    }
-                }
+                TextField("Search ..",
+                          text: $searchText,
+                          onEditingChanged:onEditingChanged(_:),
+                          onCommit: onCommit)
                     .foregroundColor(.white)
             }
                 .padding(.leading, 13)
@@ -35,6 +29,17 @@ struct SearchBarView: View {
             .frame(height: 40)
             .cornerRadius(13)
             .padding()
+    }
+
+    private func onEditingChanged(_ isEditing: Bool) {
+        withAnimation { searching = isEditing }
+    }
+
+    private func onCommit() {
+        withAnimation {
+            searching = false
+            submitSearch()
+        }
     }
 }
 
