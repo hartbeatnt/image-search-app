@@ -33,9 +33,17 @@ struct SearchPageView: View {
             SearchBarView(searchText: $searchText, searching: $searching) {
                 didCompleteSearch = true
             }
-            RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches)
+            RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches) { suggestion in
+                searchText = suggestion
+                didCompleteSearch = true
+            }
         }
             .navigationTitle("Image Search")
+            .onAppear {
+                searchText = ""
+                searching = false
+                didCompleteSearch = false
+            }
             .toolbar {
                  if searching {
                      SearchCancelButtonView(searchText: $searchText, searching: $searching)

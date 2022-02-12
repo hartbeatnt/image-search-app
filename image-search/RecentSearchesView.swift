@@ -10,6 +10,7 @@ import SwiftUI
 struct RecentSearchesView: View {
     @Binding var searchText: String
     @Binding var recentSearches: [String]
+    var didSelectSuggestion: (String) -> Void
 
     var body: some View {
         List {
@@ -19,9 +20,12 @@ struct RecentSearchesView: View {
                     : recentSearches.filter {
                         $0.lowercased().contains(searchText.lowercased())
                     }
-                ForEach(filteredRecents, id: \.self) { query in
+                ForEach(filteredRecents, id: \.self) { suggestion in
                     NavigationLink(destination: ResultsPageView(query: searchText)) {
-                        Text(query)
+                        Text(suggestion)
+                            .gesture(TapGesture(count: 1).onEnded {
+                                didSelectSuggestion(suggestion)
+                            })
                     }
                 }
             }
@@ -37,6 +41,6 @@ struct RecentSearchesView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var recentSearches = [String]()
     static var previews: some View {
-        RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches)
+        RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches) { _ in }
     }
 }
