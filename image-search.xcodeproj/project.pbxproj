@@ -10,7 +10,8 @@
 		AE9A0B1027B6FE8E003462F5 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B0F27B6FE8E003462F5 /* Util.swift */; };
 		AE9A0B1227B7078D003462F5 /* RecentSearchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1127B7078D003462F5 /* RecentSearchesView.swift */; };
 		AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */; };
-		AE9A0B1627B730BB003462F5 /* Secrets in Resources */ = {isa = PBXBuildFile; fileRef = AE9A0B1527B730BB003462F5 /* Secrets */; };
+		AE9A0B1927B7390C003462F5 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1827B7390C003462F5 /* Secrets.swift */; };
+		AE9A0B1B27B73916003462F5 /* Secrets-Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1A27B73916003462F5 /* Secrets-Example.swift */; };
 		AEF2523927B4CD0D006C9011 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523827B4CD0D006C9011 /* App.swift */; };
 		AEF2523B27B4CD0D006C9011 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF2523A27B4CD0D006C9011 /* ContentView.swift */; };
 		AEF2523D27B4CD0D006C9011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF2523C27B4CD0D006C9011 /* Assets.xcassets */; };
@@ -43,7 +44,8 @@
 		AE9A0B0F27B6FE8E003462F5 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		AE9A0B1127B7078D003462F5 /* RecentSearchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchesView.swift; sourceTree = "<group>"; };
 		AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCancelButtonView.swift; sourceTree = "<group>"; };
-		AE9A0B1527B730BB003462F5 /* Secrets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Secrets; sourceTree = "<group>"; };
+		AE9A0B1827B7390C003462F5 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		AE9A0B1A27B73916003462F5 /* Secrets-Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Secrets-Example.swift"; sourceTree = "<group>"; };
 		AEF2523527B4CD0D006C9011 /* image-search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "image-search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2523827B4CD0D006C9011 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		AEF2523A27B4CD0D006C9011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE9A0B1727B738FB003462F5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				AE9A0B1827B7390C003462F5 /* Secrets.swift */,
+				AE9A0B1A27B73916003462F5 /* Secrets-Example.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		AEF2522C27B4CD0D006C9011 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +130,7 @@
 				AEF2526627B4D437006C9011 /* SearchPageView.swift */,
 				AEF2523C27B4CD0D006C9011 /* Assets.xcassets */,
 				AEF2524127B4CD0D006C9011 /* Info.plist */,
-				AE9A0B1527B730BB003462F5 /* Secrets */,
+				AE9A0B1727B738FB003462F5 /* Secrets */,
 				AEF2523E27B4CD0D006C9011 /* Preview Content */,
 			);
 			path = "image-search";
@@ -254,7 +265,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9A0B1627B730BB003462F5 /* Secrets in Resources */,
 				AEF2524027B4CD0D006C9011 /* Preview Assets.xcassets in Resources */,
 				AEF2523D27B4CD0D006C9011 /* Assets.xcassets in Resources */,
 			);
@@ -281,7 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9A0B1B27B73916003462F5 /* Secrets-Example.swift in Sources */,
 				AEF2526927B4DCE9006C9011 /* SearchBarView.swift in Sources */,
+				AE9A0B1927B7390C003462F5 /* Secrets.swift in Sources */,
 				AE9A0B1027B6FE8E003462F5 /* Util.swift in Sources */,
 				AEF2526727B4D437006C9011 /* SearchPageView.swift in Sources */,
 				AEF2523B27B4CD0D006C9011 /* ContentView.swift in Sources */,

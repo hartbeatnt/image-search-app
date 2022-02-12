@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchBarView: View {
     @Binding var searchText: String
     @Binding var searching: Bool
+    let submitSearch: () -> Void
 
     var body: some View {
         ZStack {
@@ -19,13 +20,12 @@ struct SearchBarView: View {
                 Image(systemName: "magnifyingglass")
                 TextField("Search ..", text: $searchText) { isSearching in
                     if isSearching {
-                        withAnimation {
-                            searching = true
-                        }
+                        withAnimation { searching = true }
                     }
                 } onCommit: {
                     withAnimation {
                         searching = false
+                        submitSearch()
                     }
                 }
                     .foregroundColor(.white)
@@ -42,6 +42,6 @@ struct SearchBarView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var searching = false
     static var previews: some View {
-        SearchBarView(searchText: $searchText, searching: $searching)
+        SearchBarView(searchText: $searchText, searching: $searching) { }
     }
 }
