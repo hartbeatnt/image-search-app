@@ -25,9 +25,12 @@ struct SearchPageView: View {
         VStack {
             SearchBarView(searchText: $searchText, searching: $searching) {
                 print("**")
-                if let url = URL(string: "https://api.imgur.com/3/gallery.json") {
-                    let request = URLRequest(url: url)
+                if let url = URL(string: "https://api.imgur.com/3/gallery/search?q=\(searchText)") {
+                    var request = URLRequest(url: url)
                     request.setValue("Client-ID \(Secrets.clientId)", forHTTPHeaderField: "Authorization")
+                    URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        print(String(decoding: data!, as: UTF8.self))
+                    }.resume()
                 }
             }
             RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches)
