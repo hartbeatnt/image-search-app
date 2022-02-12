@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ResultView: View {
+struct ResultsPageView: View {
     var query: String
     
     var body: some View {
@@ -17,6 +17,6 @@ struct ResultView: View {
 
 struct ResultView_Previews: PreviewProvider {
     static var previews: some View {
-        ResultView(query: "")
+        ResultsPageView(query: "")
     }
 }

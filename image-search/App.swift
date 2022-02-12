@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct image_searchApp: App {
+struct ImageSearch: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
