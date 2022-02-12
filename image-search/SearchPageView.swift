@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Combine
+
+var cancellable: AnyCancellable?
 
 struct SearchPageView: View {
     @State private var searchText = ""
@@ -24,14 +27,23 @@ struct SearchPageView: View {
     var body: some View {
         VStack {
             SearchBarView(searchText: $searchText, searching: $searching) {
-                print("**")
-                if let url = URL(string: "https://api.imgur.com/3/gallery/search?q=\(searchText)") {
-                    var request = URLRequest(url: url)
-                    request.setValue("Client-ID \(Secrets.clientId)", forHTTPHeaderField: "Authorization")
-                    URLSession.shared.dataTask(with: request) { (data, response, error) in
-                        print(String(decoding: data!, as: UTF8.self))
-                    }.resume()
-                }
+                cancellable = ImgurApi.search(query: searchText)
+                    .mapError({ (error) -> Error in
+                        print(error)
+                        return error
+                    })
+                    .sink(receiveCompletion: { _ in },
+                          receiveValue: { response in
+                        let urls = response.data.reduce([]) {
+                            switch $1 {
+                            case .image(let image):
+                                return $0 + [image.link]
+                            case .gallery(let gallery):
+                                return $0 + gallery.images.map(\.link)
+                            }
+                        }
+                        print(urls)
+                    })
             }
             RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches)
         }

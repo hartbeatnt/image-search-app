@@ -1,11 +1,11 @@
 //
-//  Util.swift
+//  UIApplication+Extensions.swift
 //  image-search
 //
 //  Created by Nate Hart on 2/11/22.
 //
 
-import SwiftUI
+import UIKit
 
 extension UIApplication {
     func dismissKeyboard() {
