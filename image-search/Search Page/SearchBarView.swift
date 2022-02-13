@@ -24,11 +24,11 @@ struct SearchBarView: View {
                           onCommit: onCommit)
                     .foregroundColor(.white)
             }
-                .padding(.leading, 13)
+            .padding(.leading, 13)
          }
-            .frame(height: 40)
-            .cornerRadius(13)
-            .padding()
+        .frame(height: 40)
+        .cornerRadius(13)
+        .padding()
     }
 
     private func onEditingChanged(_ isEditing: Bool) {

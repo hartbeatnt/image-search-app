@@ -12,7 +12,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView { SearchPageView() }
-            .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

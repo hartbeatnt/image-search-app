@@ -25,8 +25,10 @@ struct ResultsPageView: View {
             if viewModel.state == .loading {
                 ProgressView()
             }
+            if viewModel.state == .error {
+                ErrorView()
+            }
         }
-        
         .navigationTitle(query)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: onAppear)

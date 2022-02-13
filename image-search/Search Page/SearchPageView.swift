@@ -8,50 +8,35 @@
 import SwiftUI
 import Combine
 
-var cancellable: AnyCancellable?
-
 struct SearchPageView: View {
-    @State private var searchText = ""
-    @State private var searching = false
-    @State private var didCompleteSearch = false
-    @State private var recentSearches = [
-        "car",
-        "anteater",
-        "diamonds",
-        "food",
-        "elephant",
-        "puppies",
-        "memes"
-    ]
+    @StateObject private var viewModel = ViewModel()
 
     var body: some View {
         VStack {
-            NavigationLink(destination: ResultsPageView(query: searchText), isActive: $didCompleteSearch) {
-                EmptyView()
-            }
-            SearchBarView(searchText: $searchText, searching: $searching) {
-                didCompleteSearch = true
-            }
+            SearchBarView(
+                searchText: $viewModel.searchText,
+                searching: $viewModel.searching,
+                submitSearch: { viewModel.onSubmit() }
+            )
             Text("Type a phrase into the search bar, or select a suggested search below")
-            SuggestedSearchesView(searchText: $searchText, recentSearches: $recentSearches) { suggestion in
-                searchText = suggestion
-                didCompleteSearch = true
-            }
+            SuggestedSearchesView(
+                searchText: $viewModel.searchText,
+                recentSearches: $viewModel.suggestedSearches,
+                didSelectSuggestion: { viewModel.onSelected(suggestion: $0) }
+            )
+            NavigationLink(
+                destination: ResultsPageView(query: viewModel.searchText),
+                isActive: $viewModel.didCompleteSearch
+            ) { EmptyView() }
         }
-            .navigationTitle("Image Search")
-            .onAppear(perform: onAppear)
-            .toolbar(content: maybeAddCancelButton)
-    }
-
-    private func onAppear() {
-        searchText = ""
-        searching = false
-        didCompleteSearch = false
+        .navigationTitle("Image Search")
+        .onAppear { viewModel.onAppear() }
+        .toolbar { maybeAddCancelButton() }
     }
 
     private func maybeAddCancelButton() -> SearchCancelButtonView? {
-        searching
-            ? SearchCancelButtonView(searchText: $searchText, searching: $searching)
+        viewModel.searching
+            ? SearchCancelButtonView(searchText: $viewModel.searchText, searching: $viewModel.searching)
             : nil
     }
 }
