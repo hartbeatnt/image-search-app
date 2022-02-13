@@ -44,7 +44,6 @@ extension ResultsPageView {
                 .reduce([URL]()) { self.addResponseItem(into: $0, item: $1) }
                 .filter { self.isDisplayableImage(url: $0) }
             self.urls = urls
-            print(urls)
         }
 
         private func addResponseItem(into array: [URL], item: ImgurApi.ResponseItem) -> [URL] {

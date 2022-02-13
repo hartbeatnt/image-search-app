@@ -13,10 +13,10 @@ struct SearchCancelButtonView: View {
     
     var body: some View {
         Button("Cancel") {
+            UIApplication.shared.dismissKeyboard()
             withAnimation {
                 searchText = ""
                 searching = false
-                UIApplication.shared.dismissKeyboard()
             }
         }
     }
