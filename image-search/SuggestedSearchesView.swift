@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecentSearchesView: View {
+struct SuggestedSearchesView: View {
     @Binding var searchText: String
     @Binding var recentSearches: [String]
     var didSelectSuggestion: (String) -> Void
@@ -44,6 +44,6 @@ struct RecentSearchesView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var recentSearches = [String]()
     static var previews: some View {
-        RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches) { _ in }
+        SuggestedSearchesView(searchText: $searchText, recentSearches: $recentSearches) { _ in }
     }
 }
