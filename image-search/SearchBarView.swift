@@ -22,6 +22,7 @@ struct SearchBarView: View {
                           text: $searchText,
                           onEditingChanged:onEditingChanged(_:),
                           onCommit: onCommit)
+
                     .foregroundColor(.white)
             }
                 .padding(.leading, 13)

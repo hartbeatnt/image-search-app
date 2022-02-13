@@ -35,6 +35,7 @@ struct ResultsPageView: View {
     private func onAppear() { viewModel.fetchData(query: query) }
 
     private var threeColumnGrid = [GridItem(), GridItem(), GridItem()]
+
 }
 
 struct ResultView_Previews: PreviewProvider {
