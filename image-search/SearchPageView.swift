@@ -33,7 +33,8 @@ struct SearchPageView: View {
             SearchBarView(searchText: $searchText, searching: $searching) {
                 didCompleteSearch = true
             }
-            RecentSearchesView(searchText: $searchText, recentSearches: $recentSearches) { suggestion in
+            Text("Type a phrase into the search bar, or select a suggested search below")
+            SuggestedSearchesView(searchText: $searchText, recentSearches: $recentSearches) { suggestion in
                 searchText = suggestion
                 didCompleteSearch = true
             }

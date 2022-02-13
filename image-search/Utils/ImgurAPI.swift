@@ -8,11 +8,14 @@ import Foundation
 import Combine
 
 enum ImgurApi {
+    typealias Publisher = AnyPublisher<Response, Error>
     static let apiClient = Networking()
-    static let baseUrl = "https://api.imgur.com/3/gallery/top/"
+    static let baseUrl = "https://api.imgur.com/3/gallery/search/top"
 
-    static func search(query: String, page: Int = 1) -> AnyPublisher<Response, Error> {
-        guard let url = URL(string: "\(baseUrl)/\(page)/q=\(query)") else {
+    static func search(query: String, page: Int = 0) -> Publisher {
+        guard
+            let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed),
+            let url = URL(string: "\(baseUrl)/\(page)?q=\(query)") else {
             fatalError("invalid url")
         }
         var request = URLRequest(url: url)

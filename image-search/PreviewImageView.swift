@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct PreviewImageView: View {
+    let url: URL
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        AsyncImage(url: url,
+                   content: { format(image: $0) },
+                   placeholder: { ProgressView() })
+    }
+
+    private func format(image: Image) -> some View {
+        image.resizable()
+             .aspectRatio(contentMode: .fit)
+             .frame(maxWidth: 300, maxHeight: 100)
     }
 }
 
 struct PreviewImageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewImageView()
+        PreviewImageView(url: URL(string: "example.com")!)
     }
 }

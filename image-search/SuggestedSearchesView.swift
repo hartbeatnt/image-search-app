@@ -14,7 +14,7 @@ struct SuggestedSearchesView: View {
 
     var body: some View {
         List {
-            Section(header: Text("Recent Searches")) {
+            Section(header: Text("Suggested Searches")) {
                 ForEach(getFilteredRecents(), id: \.self) { suggestion in
                     NavigationLink(destination: ResultsPageView(query: searchText)) {
                         Text(suggestion)
@@ -40,7 +40,7 @@ struct SuggestedSearchesView: View {
     }
 }
 
-struct RecentSearchesView_Previews: PreviewProvider {
+struct SuggestedSearchesView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var recentSearches = [String]()
     static var previews: some View {
