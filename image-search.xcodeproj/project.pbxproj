@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 		AE9A0B1027B6FE8E003462F5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B0F27B6FE8E003462F5 /* Networking.swift */; };
 		AE9A0B1227B7078D003462F5 /* SuggestedSearchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1127B7078D003462F5 /* SuggestedSearchesView.swift */; };
 		AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */; };
@@ -161,6 +165,10 @@
 		AEF2523727B4CD0D006C9011 /* image-search */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 				AEF2523C27B4CD0D006C9011 /* Assets.xcassets */,
 				AEF2523827B4CD0D006C9011 /* App.swift */,
 				AE9A0B2127B764A2003462F5 /* Utils */,
@@ -168,6 +176,10 @@
 				AE9A0B2427B76674003462F5 /* ViewModels */,
 				AE9A0B1727B738FB003462F5 /* Secrets */,
 				AEF2524127B4CD0D006C9011 /* Info.plist */,
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 			);
 			path = "image-search";
 			sourceTree = "<group>";
