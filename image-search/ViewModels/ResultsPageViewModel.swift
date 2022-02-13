@@ -64,6 +64,8 @@ extension ResultsPageView.ViewModel {
     }
 
     private func isDisplayableImage(url: URL) -> Bool {
+        // this could be more robust, perhaps by using a regex,
+        // but is good enough for now as-is
         url.absoluteString.hasSuffix(".jpg")
             || url.absoluteString.hasSuffix(".jpeg")
             || url.absoluteString.hasSuffix(".png")

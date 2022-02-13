@@ -22,12 +22,8 @@ struct ResultsPageView: View {
                     PreviewImageView(url: $0.wrappedValue)
                 }
             }
-            if viewModel.state == .loading {
-                ProgressView()
-            }
-            if viewModel.state == .error {
-                ErrorView()
-            }
+            if viewModel.state == .loading { ProgressView() }
+            if viewModel.state == .error { ErrorView() }
         }
         .navigationTitle(query)
         .navigationBarTitleDisplayMode(.inline)

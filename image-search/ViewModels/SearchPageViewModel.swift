@@ -13,15 +13,7 @@ extension SearchPageView {
         @Published var searchText = ""
         @Published var searching = false
         @Published var didCompleteSearch = false
-        @Published var suggestedSearches = [
-            "car",
-            "anteater",
-            "diamonds",
-            "food",
-            "elephant",
-            "puppies",
-            "memes"
-        ]
+        @Published var suggestedSearches = ViewModel.suggestedSearches
         
         func onAppear() {
             searchText = ""
@@ -38,4 +30,16 @@ extension SearchPageView {
             didCompleteSearch = true
         }
     }
+}
+
+extension SearchPageView.ViewModel {
+    private static let suggestedSearches = [
+        "car",
+        "anteater",
+        "diamonds",
+        "food",
+        "elephant",
+        "puppies",
+        "memes"
+    ]
 }
