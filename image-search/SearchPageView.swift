@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 import Combine
 
 var cancellable: AnyCancellable?
@@ -15,8 +14,6 @@ struct SearchPageView: View {
     @State private var searchText = ""
     @State private var searching = false
     @State private var didCompleteSearch = false
-
-
     @State private var recentSearches = [
         "car",
         "anteater",
