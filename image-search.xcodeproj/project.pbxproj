@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		AE46A25B27B9B7B30091123C /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46A25A27B9B7B30091123C /* SearchPageViewModel.swift */; };
 		AE46A25D27B9BDA00091123C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46A25C27B9BDA00091123C /* ErrorView.swift */; };
 		AE4BC6D727BA2834000084A6 /* ImageDetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BC6D627BA2834000084A6 /* ImageDetailPageView.swift */; };
+=======
+>>>>>>> main
 		AE9A0B1027B6FE8E003462F5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B0F27B6FE8E003462F5 /* Networking.swift */; };
 		AE9A0B1227B7078D003462F5 /* SuggestedSearchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1127B7078D003462F5 /* SuggestedSearchesView.swift */; };
 		AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A0B1327B70A11003462F5 /* SearchCancelButtonView.swift */; };
