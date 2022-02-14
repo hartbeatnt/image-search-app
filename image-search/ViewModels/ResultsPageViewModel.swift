@@ -12,14 +12,24 @@ extension ResultsPageView {
     @MainActor class ViewModel: ObservableObject {
 
         @Published var state = State.ready
-        @Published var urls = [URL]()
+        @Published var images = [Image]()
+        var query = ""
+        var page = 0
 
         func fetchData(query: String) {
+            self.query = query
             state = .loading
-            cancellable = ImgurApi.search(query: query)
+            cancellable = ImgurApi.search(query: query, page: page)
                 .mapError { self.handle(error: $0) }
                 .sink(receiveCompletion: { self.handle(completion: $0) },
                       receiveValue: { self.handle(response: $0) })
+        }
+
+        func maybeFetchMore(after image: Image) {
+            if image == images.last {
+                page += 1
+                fetchData(query: query)
+            }
         }
 
         private var cancellable: AnyCancellable?
@@ -27,6 +37,7 @@ extension ResultsPageView {
 }
 
 extension ResultsPageView.ViewModel {
+    typealias Image = ImgurApi.Image
     enum State { case loading, error, ready }
 
     private func handle(error: Error) -> Error {
@@ -48,18 +59,18 @@ extension ResultsPageView.ViewModel {
     }
 
     private func handle(response: ImgurApi.Publisher.Output) {
-        let urls = response.data
-            .reduce([URL]()) { self.addResponseItem(into: $0, item: $1) }
-            .filter { self.isDisplayableImage(url: $0) }
-        self.urls = urls
+        let images = response.data
+            .reduce([Image]()) { self.addResponseItem(into: $0, item: $1) }
+            .filter { self.isDisplayableImage(url: $0.link) }
+        self.images.append(contentsOf: images)
     }
 
-    private func addResponseItem(into array: [URL], item: ImgurApi.ResponseItem) -> [URL] {
+    private func addResponseItem(into array: [Image], item: ImgurApi.ResponseItem) -> [Image] {
         switch item {
         case .image(let image):
-            return array + [image.link]
+            return array + [image]
         case .gallery(let gallery):
-            return array + gallery.images.map(\.link)
+            return array + gallery.images
         }
     }
 
