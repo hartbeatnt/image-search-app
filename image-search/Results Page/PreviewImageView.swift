@@ -13,21 +13,25 @@ struct PreviewImageView: View {
     let height: CGFloat
 
     var body: some View {
-        AsyncImage(url: url,
-                   content: { format(image: $0) },
-                   placeholder: { makePlaceholder() })
+        GeometryReader { geometry in
+            AsyncImage(url: url,
+                       content: { format(image: $0, with: geometry) },
+                       placeholder: { makePlaceholder(for: geometry) })
+        }
+        .clipped()
+        .aspectRatio(1, contentMode: .fit)
     }
 
-    private func makePlaceholder() -> some View {
-        ProgressView()
-            .frame(maxWidth: 300, maxHeight: 100)
-            .aspectRatio(width / height, contentMode: .fit)
+    private func makePlaceholder(for geometry: GeometryProxy) -> some View {
+        return ProgressView()
+            .frame(width: geometry.size.width)
+            .padding(.init(top: geometry.size.width / 2, leading: 0, bottom: 0, trailing: 0))
     }
 
-    private func format(image: Image) -> some View {
+    private func format(image: Image, with geometry: GeometryProxy) -> some View {
         image.resizable()
-             .aspectRatio(width / height, contentMode: .fit)
-             .frame(maxWidth: 300, maxHeight: 100)
+             .scaledToFill()
+             .frame(width: geometry.size.width, alignment: .center)
     }
 }
 
