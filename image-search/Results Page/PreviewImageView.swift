@@ -9,17 +9,17 @@ import SwiftUI
 
 struct PreviewImageView: View {
     let url: URL
-    let width: CGFloat
-    let height: CGFloat
 
     var body: some View {
-        GeometryReader { geometry in
-            AsyncImage(url: url,
-                       content: { format(image: $0, with: geometry) },
-                       placeholder: { makePlaceholder(for: geometry) })
+        NavigationLink(destination: ImageDetailPageView(url: url)) {
+            GeometryReader { geometry in
+                AsyncImage(url: url,
+                           content: { format(image: $0, with: geometry) },
+                           placeholder: { makePlaceholder(for: geometry) })
+            }
+            .clipped()
+            .aspectRatio(1, contentMode: .fit)
         }
-        .clipped()
-        .aspectRatio(1, contentMode: .fit)
     }
 
     private func makePlaceholder(for geometry: GeometryProxy) -> some View {
@@ -37,6 +37,6 @@ struct PreviewImageView: View {
 
 struct PreviewImageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewImageView(url: URL(string: "example.com")!, width: 1, height: 1)
+        PreviewImageView(url: URL(string: "example.com")!)
     }
 }

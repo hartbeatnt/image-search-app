@@ -20,7 +20,7 @@ struct ResultsPageView: View {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 40)), count: 3)) {
                 ForEach($viewModel.images, id: \.self.id) { image in
                     let image = image.wrappedValue
-                    PreviewImageView(url: image.link, width: image.width, height: image.height)
+                    PreviewImageView(url: image.link)
                         .onAppear { viewModel.maybeFetchMore(after: image) }
                 }
             }
