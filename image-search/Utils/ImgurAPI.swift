@@ -38,6 +38,7 @@ extension ImgurApi {
     }
 
     struct Image: Decodable, Equatable {
+        let id: String
         let link: URL
         let width: Double
         let height: Double

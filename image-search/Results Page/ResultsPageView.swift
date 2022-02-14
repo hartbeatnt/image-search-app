@@ -18,7 +18,7 @@ struct ResultsPageView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 40)), count: 3)) {
-                ForEach($viewModel.images, id: \.self.link) { image in
+                ForEach($viewModel.images, id: \.self.id) { image in
                     let image = image.wrappedValue
                     PreviewImageView(url: image.link, width: image.width, height: image.height)
                         .onAppear { viewModel.maybeFetchMore(after: image) }
@@ -26,7 +26,7 @@ struct ResultsPageView: View {
             }
             if viewModel.state == .loading {
                 ProgressView()
-                    .padding(.init(top: 150, leading: 0, bottom: 0, trailing: 0))
+                    .padding(.init(top: 150, leading: 0, bottom: 150, trailing: 0))
                 
             }
             if viewModel.state == .error { ErrorView() }
