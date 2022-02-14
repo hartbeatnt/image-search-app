@@ -25,10 +25,10 @@ struct SuggestedSearchesView: View {
                 }
             }
         }
-            .listStyle(GroupedListStyle())
-            .gesture(TapGesture(count: 1).onEnded { _ in
-                UIApplication.shared.dismissKeyboard()
-            })
+        .listStyle(GroupedListStyle())
+        .gesture(TapGesture(count: 1).onEnded { _ in
+            UIApplication.shared.dismissKeyboard()
+        })
     }
 
     private func getFilteredRecents() -> [String] {
@@ -44,6 +44,8 @@ struct SuggestedSearchesView_Previews: PreviewProvider {
     @State static var searchText = ""
     @State static var recentSearches = [String]()
     static var previews: some View {
-        SuggestedSearchesView(searchText: $searchText, recentSearches: $recentSearches) { _ in }
+        SuggestedSearchesView(searchText: $searchText,
+                              recentSearches: $recentSearches,
+                              didSelectSuggestion: { _ in })
     }
 }

@@ -10,31 +10,33 @@ import SwiftUI
 struct ResultsPageView: View {
     var query: String
     @StateObject private var viewModel = ViewModel()
-    
+
     init(query: String) {
         self.query = query
     }
-    
+
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: threeColumnGrid) {
-                ForEach($viewModel.urls, id: \.self) {
-                    PreviewImageView(url: $0.wrappedValue)
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 40)), count: 3)) {
+                ForEach($viewModel.images, id: \.self.id) { image in
+                    let image = image.wrappedValue
+                    PreviewImageView(url: image.link)
+                        .onAppear { viewModel.maybeFetchMore(after: image) }
                 }
             }
             if viewModel.state == .loading {
                 ProgressView()
+                    .padding(.init(top: 150, leading: 0, bottom: 150, trailing: 0))
+                
             }
+            if viewModel.state == .error { ErrorView() }
         }
-        
         .navigationTitle(query)
         .navigationBarTitleDisplayMode(.inline)
         .onAppear(perform: onAppear)
     }
 
     private func onAppear() { viewModel.fetchData(query: query) }
-
-    private var threeColumnGrid = [GridItem(), GridItem(), GridItem()]
 }
 
 struct ResultView_Previews: PreviewProvider {
