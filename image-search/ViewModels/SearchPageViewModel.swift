@@ -22,8 +22,8 @@ extension SearchPageView {
             didCompleteSearch = false
             if let recentSearches = fileService.readJSON(fromFile: File.recents.rawValue) {
                 self.recentSearches = recentSearches
+                suggestedSearches = Array(Set(suggestedSearches).subtracting(recentSearches))
             }
-            print(recentSearches)
         }
 
         func onSelected(suggestion: String) {
@@ -33,7 +33,10 @@ extension SearchPageView {
 
         func onSubmit() {
             didCompleteSearch = true
-            recentSearches = [searchText] + recentSearches
+            recentSearches = ([searchText] + recentSearches.filter { $0 != searchText })
+                .prefix(10)
+                .map{ String($0) }
+            suggestedSearches = Array(Set(ViewModel.suggestedSearches).subtracting(recentSearches))
             fileService.writeJSON(data: recentSearches, toFile: File.recents.rawValue)
         }
 

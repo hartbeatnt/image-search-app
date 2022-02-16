@@ -30,7 +30,7 @@ class FileService {
     func readJSON(fromFile fileName: String) -> [String]? {
         do {
             let fileURL = getFileURL(forFile: fileName, withExtension: "json")
-            if FileManager.default.fileExists(atPath: fileURL.absoluteString) {
+            if FileManager.default.fileExists(atPath: fileURL.path) {
                 let savedData = try Data(contentsOf: fileURL)
                 let data = try JSONDecoder().decode([String].self, from: savedData)
                 return data

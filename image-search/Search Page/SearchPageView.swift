@@ -21,7 +21,8 @@ struct SearchPageView: View {
             Text("Type a phrase into the search bar, or select a suggested search below")
             SuggestedSearchesView(
                 searchText: $viewModel.searchText,
-                recentSearches: $viewModel.suggestedSearches,
+                recents: $viewModel.recentSearches,
+                suggested: $viewModel.suggestedSearches,
                 didSelectSuggestion: { viewModel.onSelected(suggestion: $0) }
             )
             NavigationLink(
