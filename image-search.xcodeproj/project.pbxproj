@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE4258F427BC8A7700C7852E /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4258F327BC8A7700C7852E /* FileService.swift */; };
 		AE46A25B27B9B7B30091123C /* SearchPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46A25A27B9B7B30091123C /* SearchPageViewModel.swift */; };
 		AE46A25D27B9BDA00091123C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE46A25C27B9BDA00091123C /* ErrorView.swift */; };
 		AE4BC6D727BA2834000084A6 /* ImageDetailPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BC6D627BA2834000084A6 /* ImageDetailPageView.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE4258F327BC8A7700C7852E /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		AE46A25A27B9B7B30091123C /* SearchPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewModel.swift; sourceTree = "<group>"; };
 		AE46A25C27B9BDA00091123C /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AE4BC6D627BA2834000084A6 /* ImageDetailPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailPageView.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				AE9A0B0F27B6FE8E003462F5 /* Networking.swift */,
 				AE9A0B1C27B74157003462F5 /* ImgurAPI.swift */,
 				AE9A0B2227B76520003462F5 /* UIApplication+Extensions.swift */,
+				AE4258F327BC8A7700C7852E /* FileService.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				AE9A0B1427B70A11003462F5 /* SearchCancelButtonView.swift in Sources */,
 				AE9A0B1227B7078D003462F5 /* SuggestedSearchesView.swift in Sources */,
 				AE46A25D27B9BDA00091123C /* ErrorView.swift in Sources */,
+				AE4258F427BC8A7700C7852E /* FileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
