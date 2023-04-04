@@ -10,6 +10,7 @@ import SwiftUI
 struct ResultsPageView: View {
     var query: String
     @StateObject private var viewModel = ViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     init(query: String) {
         self.query = query
@@ -18,9 +19,9 @@ struct ResultsPageView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 40)), count: 3)) {
-                ForEach($viewModel.images, id: \.self.id) { image in
-                    let image = image.wrappedValue
-                    PreviewImageView(url: image.link)
+                ForEach(0..<$viewModel.images.count, id: \.self) { index in
+                    let image = $viewModel.images[index].wrappedValue
+                    PreviewImageView(url: image.link, images: $viewModel.images.map{ $0.wrappedValue }, index: index, presentationMode: _presentationMode)
                         .onAppear { viewModel.maybeFetchMore(after: image) }
                 }
             }

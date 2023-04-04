@@ -9,9 +9,13 @@ import SwiftUI
 
 struct PreviewImageView: View {
     let url: URL
+    let images: [ImgurApi.Image]
+    let index: Int
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
 
     var body: some View {
-        NavigationLink(destination: ImageDetailPageView(url: url)) {
+        NavigationLink(destination: ImageDetailPageView(url: url, images: images, index: index, presentationMode: _presentationMode)) {
             GeometryReader { geometry in
                 AsyncImage(url: url,
                            content: { format(image: $0, with: geometry) },
@@ -37,6 +41,6 @@ struct PreviewImageView: View {
 
 struct PreviewImageView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewImageView(url: URL(string: "example.com")!)
+        PreviewImageView(url: URL(string: "example.com")!, images: [], index: 0)
     }
 }

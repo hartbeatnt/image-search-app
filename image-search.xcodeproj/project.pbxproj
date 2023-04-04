@@ -145,8 +145,8 @@
 		AE9A0B2027B76451003462F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AE4BC6D527BA2823000084A6 /* ImageDetailPage */,
 				AEF2523A27B4CD0D006C9011 /* ContentView.swift */,
+				AE4BC6D527BA2823000084A6 /* ImageDetailPage */,
 				AE46A25927B9B2130091123C /* Results Page */,
 				AE46A25827B9B20C0091123C /* Search Page */,
 				AEF2523E27B4CD0D006C9011 /* Preview Content */,
